@@ -12,7 +12,7 @@
 
 - Related kexts: latest RELEASE (January 2021)
 
-Make sure you have reset BIOS before continue (use fpt in DOS environment)
+Make sure you have reset BIOS before continue (use fpt in DOS environment) [http://www.mediafire.com/download/1ml4lxk6w6cwe89/fpt_DOS-Z87.zip]
 
 ## BIOS settings:
 
