@@ -389,15 +389,6 @@
 				<key>name</key>
 				<string>SATA Controller</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal@0,1f,3</string>
-				<key>model</key>
-				<string>8 Series/C220 Series Chipset Family SMBus Controller</string>
-				<key>name</key>
-				<string>SMBus Controller</string>
-			</dict>
 		</dict>
 		<key>Delete</key>
 		<dict/>
