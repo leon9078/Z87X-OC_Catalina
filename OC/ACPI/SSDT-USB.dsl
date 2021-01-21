@@ -1,23 +1,3 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200925 (64-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of SSDT-USB.aml, Thu Jan 21 07:46:40 2021
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x0000067E (1662)
- *     Revision         0x02
- *     Checksum         0x94
- *     OEM ID           "HACK"
- *     OEM Table ID     "_USB"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20200925 (538970405)
- */
 DefinitionBlock ("", "SSDT", 2, "HACK", "_USB", 0x00000000)
 {
     External (_SB_.PCI0.XHC_.RHUB.HS01, DeviceObj)
@@ -336,4 +316,3 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "_USB", 0x00000000)
         }
     }
 }
-
