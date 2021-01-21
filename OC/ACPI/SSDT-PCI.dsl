@@ -198,7 +198,7 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "_PCI", 0x00000000)
                         {
                             Return (Buffer (One)
                             {
-                                 0x57                                             // W
+                                 0x03                                             // .
                             })
                         }
 
