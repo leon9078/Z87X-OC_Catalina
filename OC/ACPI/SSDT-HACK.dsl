@@ -1,5 +1,6 @@
-DefinitionBlock ("", "SSDT", 2, "HACK", "_PCI", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "Z87XOC", "HACK", 0x00000000)
 {
+    External (_PR_.CPU0, ProcessorObj)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
     External (_SB_.PCI0.LPCB, DeviceObj)
@@ -9,6 +10,34 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "_PCI", 0x00000000)
     External (_SB_.PCI0.SAT0, DeviceObj)
     External (_SB_.PCI0.SBUS, DeviceObj)
     External (_SB_.PCI0.WMI1, DeviceObj)
+
+    Method (PMPM, 4, NotSerialized)
+    {
+        If (!Arg2)
+        {
+            Return (Buffer (One)
+            {
+                 0x03                                             // .
+            })
+        }
+
+        Return (Package (0x02)
+        {
+            "plugin-type", 
+            One
+        })
+    }
+
+    Scope (_PR.CPU0)
+    {
+        If (_OSI ("Darwin"))
+        {
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                Return (PMPM (Arg0, Arg1, Arg2, Arg3))
+            }
+        }
+    }
 
     Scope (_SB.PCI0)
     {
@@ -240,3 +269,4 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "_PCI", 0x00000000)
         }
     }
 }
+

@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 2, "HACK", "_USB", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "Z87XOC", "XHCI", 0x00000000)
 {
     External (_SB_.PCI0.XHC_.RHUB.HS01, DeviceObj)
     External (_SB_.PCI0.XHC_.RHUB.HS02, DeviceObj)

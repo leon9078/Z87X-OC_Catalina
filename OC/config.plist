@@ -8,27 +8,19 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PCI.aml</string>
+				<string>SSDT-HACK.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PCI.aml</string>
+				<string>SSDT-HACK.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PLUG.aml</string>
+				<string>SSDT-XHCI.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-USB.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-USB.aml</string>
+				<string>SSDT-XHCI.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
