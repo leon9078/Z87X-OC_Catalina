@@ -15,30 +15,10 @@
 \- NVIDIA GeForce GFX 770 // ASUS 2 GB GDDR5  
 \- Crucial Ballistix Tactical // DDR3 1600 MHz CL8 (2 x 8 GB)  
 \- Broadcom BCM94360CD // 802.11ac + Bluetooth 4.0  
-\- Samsung SSD 850 EVO 250 GB // SATA  
+\- Samsung SSD 850 EVO // SATA 250 GB  
 \- Cooler Master B700 // 700W
 
-• BIOS: F8 (This version fixes a lot of issues)
-
-1) Problematic memory map (issues with wake from sleep, happening even on Linux)
-
-\- Kernel trap at ... type=13 (memory protection)  
-\- Kernel trap at ... type=14 (page fault)  
-\- a freed zone element has been modified in X expected Y  
-\- Possible memory corruption: pmap_pv_remove
-
-and so on...
-
-2) Conflicting RTC memory offset: 8A (inside IOHibernateRTCVariables)
-
-\- This prevent macOS from going into hibernation, resulting in a CMOS reset
-
-#### This motherboard has proprietary DualBIOS technology, so we need to update the BIOS twice.
-
-1) Shutdown PC and remove power cord  
-2) Switch to the Backup BIOS (BIOS_SW > 2)
-
-Now we need a USB Flash Drive (64 MB+) to write fpt
+\>>> We need a USB Flash Drive (64 MB+) to write fpt_RU.iso
 
 #### Windows
 
@@ -52,26 +32,52 @@ Open rufus, select fpt_RU.iso, flash to USB
 
 ``` $ sudo dd if=/path/to/fpt_RU.iso of=/dev/sdX bs=1M oflag=sync ```
 
-\>>> To boot from legacy DOS environment, make sure you have the following settings in BIOS
+### BIOS: F8 (This version fixes a lot of issues)
 
-\- BIOS Features > Windows 8 Features: Other OS
+1. Problematic memory map (issues with wake from sleep, happening even on Linux)
 
-F10 to save, then Del to enter BIOS again
+- Kernel trap at ... type=13 (memory protection)  
+- Kernel trap at ... type=14 (page fault)  
+- a freed zone element has been modified in X expected Y  
+- Possible memory corruption: pmap_pv_remove  
+- and so on...
 
+2. Conflicting RTC memory offset: 8A (inside IOHibernateRTCVariables)
+
+> This prevent macOS from going into hibernation, resulting in a CMOS reset
+
+#### This motherboard has proprietary DualBIOS technology, so we need to update the BIOS twice.
+
+First, shutdown PC and remove power cord. Then, switch to the Backup BIOS (BIOS_SW > 2)
+
+### To boot from fpt_RU USB, make sure you have the following settings in BIOS
+
+\- BIOS Features > Windows 8 Features: Other OS  
 \- BIOS Features > Boot Mode Selection: UEFI and Legacy  
 \- Peripherals > Legacy USB Support: Enabled
 
-F10 to save
-
 \>>> Power on PC, press F12 key, select the Legacy option (not "UEFI: "), then wait until you see a green output "FPT Operation Passed"
 
-> N.B. -savemac argument will save our own MAC Address, so we don't need to reflash it later
+> -savemac argument will save our own MAC Address, so we don't need to reflash it later
 
-CTRL+ALT+DEL to restart, unplug USB key
+CTRL+ALT+DEL to restart
 
-Shutdown, remove power cord, do a CMOS reset (CMOS_SW)
+#### Now the PC will shutdown twice. When it boot for the 3rd time press F12 key, select the UEFI option ("UEFI: ")
 
-Boot, select Restore to Optimized then reboot
+> This will enter RU environment. This tool allows us to edit different BIOS settings, so it's __very__ dangerous!
+
+Now we need to disable VT-d
+
+> This removes DMAR table from ACPI stack
+
+This option is hidden in BIOS (because of my specific CPU)
+
+\- Press Alt + = for UEFI Variables  
+\- Scroll down with PgDown key, select Setup [EC87D643-EBA4-4BB5...], Size: 0x9B4  
+\- Scroll down with Ctrl+PgDown, select Variable: 0x2A0 (Value should be 0x1, Enabled)  
+\- Press Enter key, type 0 (to Disable), Enter key again, then Ctrl + W (There should be UPDATE: Setup: OK)
+
+CTRL+ALT+DEL to reboot, unplug USB key
 
 ## BIOS settings:
 
@@ -87,7 +93,7 @@ Press F10 key to save, then enter BIOS again (Delete key)
 ### BIOS Features
 - Full Screen LOGO Show: Disabled
 
-> This removes BGRT ACPI table
+> This removes BGRT table from ACPI stack
 
 - Windows 8 Features: Windows 8  
 - Boot Mode Selection: UEFI Only  
@@ -120,18 +126,4 @@ Press F10 key to save, then enter BIOS again (Delete key)
 
 Press F10 key to save, you are done!
 
-
-Now we need to disable VT-d. Since this option is hidden in BIOS (because of my specific CPU) we need to use an external tool called RU
-
-> This removes DMAR ACPI table
-
-Power on PC, press F12 key, select the UEFI option ("UEFI: "), then press Enter key
-
-\- Press Alt + = for UEFI Variables  
-\- Scroll down with PgDown key, select Setup [EC87D643-EBA4-4BB5...], Size: 0x9B4  
-\- Scroll down with Ctrl+PgDown, select Variable: 0x2A0 (Value should be 0x1, Enabled)  
-\- Press Enter key, type 0, Enter key again, then Ctrl + W (There should be UPDATE: Setup: OK)
-
-Shutdown
-
-## Now switch to the Main BIOS (BIOS_SW > 1) and repeat the above steps!
+## Now power off PC, remove power cord, switch to the Main BIOS (BIOS_SW > 1) and repeat the above steps!
