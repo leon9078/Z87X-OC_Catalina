@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 2, "Z87XOC", "HACK", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "Z87XOC", "MAIN", 0x00000000)
 {
     External (_PR_.CPU0, ProcessorObj)
     External (_SB_.PCI0, DeviceObj)
@@ -269,4 +269,3 @@ DefinitionBlock ("", "SSDT", 2, "Z87XOC", "HACK", 0x00000000)
         }
     }
 }
-

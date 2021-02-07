@@ -127,3 +127,16 @@ Press F10 key to save, then enter BIOS again (Delete key)
 Press F10 key to save, you are done!
 
 ## Now power off PC, remove power cord, switch to the Main BIOS (BIOS_SW > 1) and repeat the above steps!
+
+# Install macOS
+
+## If you want Hibernation, first prepare OpenCore for the detection
+
+- In config.plist set:
+  - Kernel > Patch > Entry[0] | <false>
+  - Misc > Boot > HibernateMode | RTC
+
+\>>> Now, to actually enable hibernation, check "pmset -g" settings and make sure you have one of those scenarios
+
+1. hibernatemode 0, standby 1, autopoweroff 1 (for hibernation after standbydelay time)
+2. hibernatemode 25 (for instant hibernation)

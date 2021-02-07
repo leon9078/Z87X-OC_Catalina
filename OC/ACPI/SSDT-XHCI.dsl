@@ -24,295 +24,232 @@ DefinitionBlock ("", "SSDT", 2, "Z87XOC", "XHCI", 0x00000000)
 
     Scope (_SB.PCI0.XHC.RHUB.HS01)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.HS02)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS03)
+    Scope (_SB.PCI0.XHC.RHUB.HS03) // Motherboard's internal near CBAT_SW button
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.HS04)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS05)
+    Scope (_SB.PCI0.XHC.RHUB.HS05) // External header near Wi-Fi antennas
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS06)
+    Scope (_SB.PCI0.XHC.RHUB.HS06) // Motherboard's internal near SATA ports
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS07)
+    Scope (_SB.PCI0.XHC.RHUB.HS07) // Motherboard's external near center
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS08)
+    Scope (_SB.PCI0.XHC.RHUB.HS08) // Motherboard's external near angle
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS09)
+    Scope (_SB.PCI0.XHC.RHUB.HS09) // Motherboard's external Hub (1. near HDMI port, 2. far HDMI port 3. far PS/2 port 4. near PS/2 port)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS10)
+    Scope (_SB.PCI0.XHC.RHUB.HS10) // Motherboard's external Hub (1. far Ethernet port, 2. near Ethernet port)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.HS11)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.HS12)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS13)
+    Scope (_SB.PCI0.XHC.RHUB.HS13) // Motherboard's internal Hub (3. Bluetooth)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            0xFF, // Proprietary connector
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS14)
+    Scope (_SB.PCI0.XHC.RHUB.HS14) // External header far Wi-Fi antennas
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                Zero, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            Zero, // USB 2.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.HS15)
+    Scope (_SB.PCI0.XHC.RHUB.HS15) // Phantom port
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.SSP1)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.SSP2)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.SSP3)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
     Scope (_SB.PCI0.XHC.RHUB.SSP4)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                Zero, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
-        }
+            Zero, 
+            0xFF, 
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.SSP5)
+    Scope (_SB.PCI0.XHC.RHUB.SSP5) // Motherboard's external Hub (1. near HDMI port, 2. far HDMI port 3. far PS/2 port 4. near PS/2 port)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            0x03, // USB 3.0
+            Zero, 
+            Zero
+        })
     }
 
-    Scope (_SB.PCI0.XHC.RHUB.SSP6)
+    Scope (_SB.PCI0.XHC.RHUB.SSP6) // Motherboard's external Hub (1. far Ethernet port, 2. near Ethernet port)
     {
-        If (_OSI ("Darwin"))
+        Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
         {
-            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
-            {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
-        }
+            0xFF, 
+            0x03, // USB 3.0
+            Zero, 
+            Zero
+        })
     }
 }
