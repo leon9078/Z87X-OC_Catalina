@@ -297,6 +297,25 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>HibernationFixup.kext</string>
+				<key>Comment</key>
+				<string>Hibernation fixes</string>
+				<key>Enabled</key>
+				<false/>
+				<!-- Enable ONLY if you want hibernation with default behavior (hibernatemode 0, standby 1, autopoweroff 1). More info on README.md -->
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>14.5.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
@@ -360,6 +379,7 @@
 				<integer>1</integer>
 				<key>Enabled</key>
 				<false/>
+				<!-- Enable ONLY if you want pure hibernation (hibernatemode 25). More info on README.md -->
 				<key>Find</key>
 				<data>6JSUAAA=</data>
 				<!-- This specific bytes sequence only works for 10.15.6 and 10.15.7. Different Darwin versions need different Find bytes sequence -->

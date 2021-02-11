@@ -133,10 +133,22 @@ Press F10 key to save, you are done!
 ## If you want Hibernation, first prepare OpenCore for the detection
 
 - In config.plist set:
-  - Kernel > Patch > Entry[0] | <false>
+  - Kernel > Patch > [Disable RTC wake scheduling] | false  
   - Misc > Boot > HibernateMode | RTC
 
-\>>> Now, to actually enable hibernation, check "pmset -g" settings and make sure you have one of those scenarios
+"restoreMachineState" MUST be enabled ONLY for hibernation (and not normal sleep). Because of this you have 2 options, see below
 
-1. hibernatemode 0, standby 1, autopoweroff 1 (for hibernation after standbydelay time)
-2. hibernatemode 25 (for instant hibernation)
+1. Default behaviour (for hibernation after standbydelay time):
+  - hibernatemode 0  
+  - standby 1  
+  - autopoweroff 1
+
+Hack will first sleep then, after standbydelay time, will hibernate. To prevent Kernel Panic (Sleep Wake failure in EFI) or hang on a black screen after exit hibernation, we need to enable HibernationFixup.kext
+  - config.plist > Kernel > Add > [HibernationFixup] > Enabled | true  
+  - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | false
+HibernationFixup ensures "restoreMachineState" patch is being applied dynamically (it only works for hibernation, but not for normal sleep)
+
+2. Pure hibernation (never going to normal sleep):
+  - config.plist > Kernel > Add > [HibernationFixup] > Enabled | false  
+  - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | true  
+  - ``` $ sudo pmset hibernatemode 25 ```
