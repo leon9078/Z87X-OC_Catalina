@@ -138,7 +138,7 @@ Press F10 key to save, you are done!
 
 "restoreMachineState" MUST be enabled ONLY for hibernation (and not normal sleep). Because of this you have 2 options, see below
 
-1. Default behaviour (for hibernation after standbydelay time):
+__1. Default behaviour__ (for hibernation after standbydelay time):
   - hibernatemode 0  
   - standby 1  
   - autopoweroff 1
@@ -149,7 +149,7 @@ Hack will first sleep then, after standbydelay time, will hibernate. To prevent 
 
 HibernationFixup ensures "restoreMachineState" patch is being applied dynamically (it only works for hibernation, but not for normal sleep)
 
-2. Pure hibernation (never going to normal sleep):
+__2. Pure hibernation__ (never going to normal sleep):
   - config.plist > Kernel > Add > [HibernationFixup] > Enabled | false  
   - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | true  
   - ``` $ sudo pmset hibernatemode 25 ```
