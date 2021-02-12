@@ -146,6 +146,7 @@ Press F10 key to save, you are done!
 Hack will first sleep then, after standbydelay time, will hibernate. To prevent Kernel Panic (Sleep Wake failure in EFI) or hang on a black screen after exit hibernation, we need to enable HibernationFixup.kext
   - config.plist > Kernel > Add > [HibernationFixup] > Enabled | true  
   - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | false
+
 HibernationFixup ensures "restoreMachineState" patch is being applied dynamically (it only works for hibernation, but not for normal sleep)
 
 2. Pure hibernation (never going to normal sleep):
