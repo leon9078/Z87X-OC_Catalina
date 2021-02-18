@@ -155,8 +155,8 @@ __2. Pure hibernation__ (never going to normal sleep):
 
 ## If you have a Fusion Drive, use this script to make sure autosleep is working!
 
-``` $ sudo mkdir /usr/local/bin ```
-``` $ sudo cp kill_UserEeventAgent.sh /usr/local/bin/ ```
-``` $ EDITOR=nano sudo crontab -e ```
-\> */10 * * * *	/usr/local/bin/kill_UserEeventAgent.sh &>/dev/null
+``` $ sudo mkdir /usr/local/bin ```  
+``` $ sudo cp kill_UserEeventAgent.sh /usr/local/bin/ ```  
+``` $ EDITOR=nano sudo crontab -e ```  
+\> */10 * * * *	/usr/local/bin/kill_UserEeventAgent.sh &>/dev/null  
 - Reboot
