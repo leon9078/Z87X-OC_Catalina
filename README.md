@@ -1,9 +1,6 @@
 # Hackintosh_Main
 
-• macOS: Catalina  
-• Version: 10.15.7  
-• Build: 19H512 (Security Update 2021-001)
-
+• macOS: Catalina 10.15.7  
 • OpenCore: 0.6.6 RELEASE (February 2021)  
 • Related kexts: latest RELEASE (February 2021)
 
@@ -26,11 +23,11 @@ Open rufus, select fpt_RU.iso, flash to USB
 
 #### macOS
 
-``` $ sudo dd if=/path/to/fpt_RU.iso of=/dev/rdiskX bs=1m && sudo sync ```
+``` # dd if=/path/to/fpt_RU.iso of=/dev/rdiskX && sync ```
 
 #### Linux
 
-``` $ sudo dd if=/path/to/fpt_RU.iso of=/dev/sdX bs=1M oflag=sync ```
+``` # dd if=/path/to/fpt_RU.iso of=/dev/sdX && sync ```
 
 ### BIOS: F8 (This version fixes a lot of issues)
 
@@ -130,11 +127,9 @@ Press F10 key to save, you are done!
 
 # Install macOS
 
-## If you want Hibernation, first prepare OpenCore for the detection
+## If you want to adventure with Hibernation, first prepare OpenCore for the detection
 
-- In config.plist set:
-  - Kernel > Patch > [Disable RTC wake scheduling] | false  
-  - Misc > Boot > HibernateMode | RTC
+- config.plist > Misc > Boot > HibernateMode | RTC
 
 "restoreMachineState" MUST be enabled ONLY for hibernation (and not normal sleep). Because of this you have 2 options, see below
 
@@ -143,13 +138,25 @@ __1. Default behaviour__ (for hibernation after standbydelay time):
   - standby 1  
   - autopoweroff 1
 
-Hack will first sleep then, after standbydelay time, will hibernate. To prevent Kernel Panic (Sleep Wake failure in EFI) or hang on a black screen after exit hibernation, we need to enable HibernationFixup.kext
-  - config.plist > Kernel > Add > [HibernationFixup] > Enabled | true  
+Hack will first sleep then, after standbydelay time, will hibernate. To prevent Kernel Panic (Sleep Wake failure in EFI) or hang on a black screen after exit hibernation, we need to use HibernationFixup.kext
+  - config.plist > Kernel > Add > [HibernationFixup] (Manually add this entry)  
+  - config.plist > Kernel > Patch > [Disable RTC wake scheduling] | false  
   - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | false
+  - __REBOOT TWICE!__
 
-HibernationFixup ensures "restoreMachineState" patch is being applied dynamically (it only works for hibernation, but not for normal sleep)
+HibernationFixup ensures "restoreMachineState" patch is being applied dynamically (only for hibernation, but not for normal sleep)
 
 __2. Pure hibernation__ (never going to normal sleep):
-  - config.plist > Kernel > Add > [HibernationFixup] > Enabled | false  
+  - config.plist > Kernel > Add > [HibernationFixup] (Manually remove this entry)  
+  - config.plist > Kernel > Patch > [Disable RTC wake scheduling] | true  
   - config.plist > Kernel > Patch > [restoreMachineState] > Enabled | true  
   - ``` $ sudo pmset hibernatemode 25 ```
+  - __REBOOT TWICE!__
+
+## If you have a Fusion Drive, use this script to make sure autosleep is working!
+
+``` $ sudo mkdir /usr/local/bin ```
+``` $ sudo cp kill_UserEeventAgent.sh /usr/local/bin/ ```
+``` $ EDITOR=nano sudo crontab -e ```
+\> */10 * * * *	/usr/local/bin/kill_UserEeventAgent.sh &>/dev/null
+- Reboot
