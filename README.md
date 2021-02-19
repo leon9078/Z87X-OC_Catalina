@@ -59,7 +59,7 @@ First, shutdown PC and remove power cord. Then, switch to the Backup BIOS (BIOS_
 
 CTRL+ALT+DEL to restart
 
-#### Now the PC will shutdown twice. When it boot for the 3rd time press F12 key, select the UEFI option ("UEFI: ")
+#### Now the PC will shutdown twice. When it boot for the 3rd time press F12 key, select the UEFI option ("UEFI: "). There will be a reboot, select again the ("UEFI: ") option, this time it will boot
 
 > This will enter RU environment. This tool allows us to edit different BIOS settings, so it's __very__ dangerous!
 
