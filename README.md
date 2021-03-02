@@ -1,8 +1,8 @@
 # Hackintosh_Main
 
 • macOS: Catalina 10.15.7  
-• OpenCore: 0.6.6 RELEASE (February 2021)  
-• Related kexts: latest RELEASE (February 2021)
+• OpenCore: 0.6.7 RELEASE (March 2021)  
+• Related kexts: latest RELEASE (March 2021)
 
 \>>> Hardware
 
