@@ -148,6 +148,8 @@ Copy output value to "config.plist > Misc > Security > PasswordHash"
 
 Copy output value to "config.plist > Misc > Security > PasswordSalt"
 
+Change "config.plist > Misc > Security > EnablePassword" from NO to YES
+
 `$ rm ocpasswordgen OpenCore-0.6.7-RELEASE.zip`
 
 __4) OpenCore's "Vault"__
