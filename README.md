@@ -129,16 +129,16 @@ Press F10 key to save, you are done!
 
 # Post install: adding Security features
 
-__1) Enable FileVault in System Preferences > Security & Privacy > FileVault   (Choose recovery key)__
-__2) ScanPolicy__
+__1) Enable FileVault in "System Preferences > Security & Privacy > FileVault"   (Choose recovery key)__  
+__2) ScanPolicy__  
 `$ sudo diskutil mount /dev/disk0s1`
 
 Change "config.plist > Misc > Security > ScanPolicy" value from 0 to 65795 (FILE_SYSTEM_LOCK, DEVICE_LOCK, ALLOW_FS_APFS, ALLOW_DEVICE_SATA)
 
-__3) OpenCore Menu password__
-`$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.7/OpenCore-0.6.7-RELEASE.zip`
-`$ unzip -j OpenCore-0.6.7-RELEASE.zip "Utilities/ocpasswordgen/ocpasswordgen"`
-`$ ./ocpasswordgen`   (Follow instructions)
+__3) OpenCore Menu password__  
+`$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.7/OpenCore-0.6.7-RELEASE.zip`  
+`$ unzip -j OpenCore-0.6.7-RELEASE.zip "Utilities/ocpasswordgen/ocpasswordgen"`  
+`$ ./ocpasswordgen`   (Follow instructions)  
 `$ echo "{copy/paste output from PasswordHash}" | xxd -r -p | base64`
 
 Copy output value to "config.plist > Misc > Security > PasswordHash"
@@ -148,6 +148,8 @@ Copy output value to "config.plist > Misc > Security > PasswordHash"
 
 Copy output value to "config.plist > Misc > Security > PasswordSalt"
 
+`$ rm ocpasswordgen OpenCore-0.6.7-RELEASE.zip`
+
 __4) OpenCore's "Vault"__
 
 First, make sure you have "Terminal" checked in System Preferences > Security & Privacy > Privacy > Full Disk Access
@@ -155,9 +157,11 @@ First, make sure you have "Terminal" checked in System Preferences > Security & 
 Open Terminal, then type:
 
 `$ touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress && softwareupdate -i "$(softwareupdate -l | awk '$1 == "*" && $2 == "Label:" && $3 == "Command" && $4 == "Line" && $5 == "Tools" {$1=$2=""; sub(/^[ \t]+/, ""); print}')" && rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress`  
+<br/>
 `$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.7/OpenCore-0.6.7-RELEASE.zip`  
 `$ sudo diskutil mount /dev/disk0s1`  
 `$ bsdtar -x --include="Utilities/" -C /Volumes/EFI/ -f OpenCore-0.6.7-RELEASE.zip && rm -rf OpenCore-0.6.7-RELEASE.zip`  
+<br/>
 `$ sed -i '' 's/Optional/Secure/' /Volumes/EFI/EFI/OC/config.plist`  
 `$ find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" | xargs rm -rf && /Volumes/EFI/Utilities/CreateVault/sign.command && find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" -o -name "Utilities" | xargs rm -rf && sleep 1 && diskutil unmount /dev/disk0s1`
 
