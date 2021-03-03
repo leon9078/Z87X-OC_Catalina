@@ -1,39 +1,39 @@
 Device Manager
 
-Bluetooth 4.0 (BCM94360CD)            -> \_SB.PCI0.XHC.RHUB.HS13
-SSD SATA                              -> \_SB.PCI0.SAT0
-IGPU                                  -> \_SB.PCI0.GFX0
-dGPU                                  -> \_SB.PCI0.PEG0.PEGP     1) \_SB.PCI0.P0P2.PEGP 2) \_SB.PCI0.PEG0.PEGP
-USB Input Device                      -> \_SB.PCI0.XHC.RHUB.HS05
-USB Input Device                      -> \_SB.PCI0.XHC.RHUB.HS14
-Wi-Fi                                 -> 1) \_SB.PCI0.P0PA 2) \_SB.PCI0.PEG1
-Ethernet                              -> \_SB.PCI0.GLAN
-CPU                                   -> \_PR.CPU0
-Direct memory access controller       -> \_SB.PCI0.LPCB.DMAC
-IGPU High Definition Audio Controller -> \_SB.PCI0.B0D3
-High Definition Audio Controller      -> \_SB.PCI0.HDEF
-High Precision event timer (HPET)     -> \_SB.PCI0.LPCB.HPET
-PCI Express Root Port #1              -> \_SB.PCI0.RP01
-SMBus Controller                      -> \_SB.PCI0.SBUS
-IMEI                                  -> ??
-PCI Express x8 Controller             -> \_SB.PCI0.P0PA
-PCI Express x16 Controller            -> \_SB.PCI0.P0P2
-LPC Controller                        -> \_SB.PCI0.LPCB
-Legacy device                         -> \_SB.PCI0.LPCB.FWHD
-Windows Management Interface for ACPI -> \_SB.PCI0.WMI1
-Numeric data processor                -> \_SB.PCI0.LPCB.COPR
-PCI-to-PCI Bridge                     -> \_SB.PCI0.RP05
-PCI-to-PCI Bridge                     -> \_SB.PCI0.RP05.PXSX
-Programmable interrupt controller     -> \_SB.PCI0.LPCB.IPIC
-System CMOS/real time clock           -> \_SB.PCI0.LPCB.RTC
-System timer                          -> \_SB.PCI0.LPCB.TIMR
-Generic SuperSpeed USB Hub            -> \_SB.PCI0.XHC.RHUB.SSP5
-Generic SuperSpeed USB Hub            -> \_SB.PCI0.XHC.RHUB.SSP6
-Generic USB Hub                       -> \_SB.PCI0.XHC.RHUB.HS10
-Generic USB Hub                       -> \_SB.PCI0.EHC2.HUBN.PR01
-Generic USB Hub                       -> \_SB.PCI0.XHC.RHUB.HS09
-Generic USB Hub                       -> \_SB.PCI0.EHC1.HUBN.PR01
-EHCI #1                               -> \_SB.PCI0.EHC1
-EHCI #2                               -> \_SB.PCI0.EHC2
-eXtensible Host Controller            -> \_SB.PCI0.XHC
-USB Composite Device                  -> \_SB.PCI0.XHC.RHUB.HS14
+Bluetooth 4.0 (BCM94360CD)                ->     \_SB.PCI0.XHC.RHUB.HS13
+SSD SATA                                  ->     \_SB.PCI0.SAT0
+IGPU                                      ->     \_SB.PCI0.GFX0
+dGPU                                      ->     \_SB.PCI0.PEG0.PEGP     1) \_SB.PCI0.P0P2.PEGP 2) \_SB.PCI0.PEG0.PEGP
+USB Input Device                          ->     \_SB.PCI0.XHC.RHUB.HS05
+USB Input Device                          ->     \_SB.PCI0.XHC.RHUB.HS14
+Wi-Fi                                     ->     1) \_SB.PCI0.P0PA 2) \_SB.PCI0.PEG1
+Ethernet                                  ->     \_SB.PCI0.GLAN
+CPU                                       ->     \_PR.CPU0
+Direct memory access controller           ->     \_SB.PCI0.LPCB.DMAC
+IGPU High Definition Audio Controller     ->     \_SB.PCI0.B0D3
+High Definition Audio Controller          ->     \_SB.PCI0.HDEF
+High Precision event timer (HPET)         ->     \_SB.PCI0.LPCB.HPET
+PCI Express Root Port #1                  ->     \_SB.PCI0.RP01
+SMBus Controller                          ->     \_SB.PCI0.SBUS
+IMEI                                      ->     ??
+PCI Express x8 Controller                 ->     \_SB.PCI0.P0PA
+PCI Express x16 Controller                ->     \_SB.PCI0.P0P2
+LPC Controller                            ->     \_SB.PCI0.LPCB
+Legacy device                             ->     \_SB.PCI0.LPCB.FWHD
+Windows Management Interface for ACPI     ->     \_SB.PCI0.WMI1
+Numeric data processor                    ->     \_SB.PCI0.LPCB.COPR
+PCI-to-PCI Bridge                         ->     \_SB.PCI0.RP05
+PCI-to-PCI Bridge                         ->     \_SB.PCI0.RP05.PXSX
+Programmable interrupt controller         ->     \_SB.PCI0.LPCB.IPIC
+System CMOS/real time clock               ->     \_SB.PCI0.LPCB.RTC
+System timer                              ->     \_SB.PCI0.LPCB.TIMR
+Generic SuperSpeed USB Hub                ->     \_SB.PCI0.XHC.RHUB.SSP5
+Generic SuperSpeed USB Hub                ->     \_SB.PCI0.XHC.RHUB.SSP6
+Generic USB Hub                           ->     \_SB.PCI0.XHC.RHUB.HS10
+Generic USB Hub                           ->     \_SB.PCI0.EHC2.HUBN.PR01
+Generic USB Hub                           ->     \_SB.PCI0.XHC.RHUB.HS09
+Generic USB Hub                           ->     \_SB.PCI0.EHC1.HUBN.PR01
+EHCI #1                                   ->     \_SB.PCI0.EHC1
+EHCI #2                                   ->     \_SB.PCI0.EHC2
+eXtensible Host Controller                ->     \_SB.PCI0.XHC
+USB Composite Device                      ->     \_SB.PCI0.XHC.RHUB.HS14
