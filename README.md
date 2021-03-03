@@ -150,24 +150,24 @@ Copy output value to "config.plist > Misc > Security > PasswordSalt"
 
 Change "config.plist > Misc > Security > EnablePassword" from NO to YES
 
-`$ rm ocpasswordgen OpenCore-0.6.7-RELEASE.zip`
+`$ rm ocpasswordgen`
 
 __4) OpenCore's "Vault"__
 
 First, make sure you have "Terminal" checked in System Preferences > Security & Privacy > Privacy > Full Disk Access
 
+Close every Finder window
+
 Open Terminal, then type:
 
 `$ touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress && softwareupdate -i "$(softwareupdate -l | awk '$1 == "*" && $2 == "Label:" && $3 == "Command" && $4 == "Line" && $5 == "Tools" {$1=$2=""; sub(/^[ \t]+/, ""); print}')" && rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress`  
 <br/>
-`$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.7/OpenCore-0.6.7-RELEASE.zip`  
-`$ sudo diskutil mount /dev/disk0s1`  
 `$ bsdtar -x --include="Utilities/" -C /Volumes/EFI/ -f OpenCore-0.6.7-RELEASE.zip && rm -rf OpenCore-0.6.7-RELEASE.zip`  
 <br/>
 `$ sed -i '' 's/Optional/Secure/' /Volumes/EFI/EFI/OC/config.plist`  
-`$ find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" | xargs rm -rf && /Volumes/EFI/Utilities/CreateVault/sign.command && find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" -o -name "Utilities" | xargs rm -rf && sleep 1 && diskutil unmount /dev/disk0s1`
+`$ find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" | xargs rm -rf && /Volumes/EFI/Utilities/CreateVault/sign.command && find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" -o -name "Utilities" | xargs rm -rf && diskutil unmount /dev/disk0s1`
 
-Reboot
+Done!
 
 ## If you want to adventure with Hibernation, first prepare OpenCore for the detection
 
