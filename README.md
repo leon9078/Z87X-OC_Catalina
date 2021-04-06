@@ -109,6 +109,10 @@ Press F10 key to save, then enter BIOS again (Delete key)
 
 >This avoids a lot of issues like USB2 port routing (Method XSEL,ESEL,XWAK), USB devices not working after wake from sleep, iPad charge/discharge through USB2 ports, renaming EHC1/2 to EH01/2
 
+- Intel Processor Graphics: Disabled  
+
+>This avoid issues with graphic drivers in Linux, and it's useful to disable also in macOS
+
 - Legacy USB Support: Disabled  
 - Super IO Configuration > Serial Port A: Disabled  
 - Intel(R) Ethernet Network Connection i217-V > NIC Configuration > Wake on LAN: Disabled

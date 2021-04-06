@@ -2,7 +2,6 @@ DefinitionBlock ("", "SSDT", 2, "Z87XOC", "MAIN", 0x00000000)
 {
     External (_PR_.CPU0, ProcessorObj)
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.GFX0, DeviceObj)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.COPR, DeviceObj)
     External (_SB_.PCI0.P0P2, DeviceObj)
@@ -41,14 +40,6 @@ DefinitionBlock ("", "SSDT", 2, "Z87XOC", "MAIN", 0x00000000)
 
     Scope (_SB.PCI0)
     {
-        Scope (GFX0)
-        {
-            If (_OSI ("Darwin"))
-            {
-                Name (_SUN, Zero)  // _SUN: Slot User Number
-            }
-        }
-
         Device (IMEI)
         {
             Name (_ADR, 0x00160000)  // _ADR: Address
