@@ -1,8 +1,8 @@
 # Hackintosh_Main
 
 • macOS: Catalina 10.15.7  
-• OpenCore: 0.6.8 RELEASE (April 2021)  
-• Related kexts: latest RELEASE (April 2021)
+• OpenCore: 0.6.9 RELEASE (May 2021)  
+• Related kexts: latest RELEASE (May 2021)
 
 \>>> Hardware
 
@@ -140,8 +140,8 @@ __2) ScanPolicy__
 Change "config.plist > Misc > Security > ScanPolicy" value from 0 to 65795 (FILE_SYSTEM_LOCK, DEVICE_LOCK, ALLOW_FS_APFS, ALLOW_DEVICE_SATA)
 
 __3) OpenCore Menu password__  
-`$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.8/OpenCore-0.6.8-RELEASE.zip`  
-`$ unzip -j OpenCore-0.6.8-RELEASE.zip "Utilities/ocpasswordgen/ocpasswordgen"`  
+`$ curl -LJO https://github.com/acidanthera/OpenCorePkg/releases/download/0.6.9/OpenCore-0.6.9-RELEASE.zip`  
+`$ unzip -j OpenCore-0.6.9-RELEASE.zip "Utilities/ocpasswordgen/ocpasswordgen"`  
 `$ ./ocpasswordgen`   (Follow instructions)  
 `$ echo "{copy/paste output from PasswordHash}" | xxd -r -p | base64`
 
@@ -166,7 +166,7 @@ Open Terminal, then type:
 
 `$ touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress && softwareupdate -i "$(softwareupdate -l | awk '$1 == "*" && $2 == "Label:" && $3 == "Command" && $4 == "Line" && $5 == "Tools" {$1=$2=""; sub(/^[ \t]+/, ""); print}')" && rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress`  
 <br/>
-`$ bsdtar -x --include="Utilities/" -C /Volumes/EFI/ -f OpenCore-0.6.8-RELEASE.zip && rm -rf OpenCore-0.6.8-RELEASE.zip`  
+`$ bsdtar -x --include="Utilities/" -C /Volumes/EFI/ -f OpenCore-0.6.9-RELEASE.zip && rm -rf OpenCore-0.6.9-RELEASE.zip`  
 <br/>
 `$ sed -i '' 's/Optional/Secure/' /Volumes/EFI/EFI/OC/config.plist`  
 `$ find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" | xargs rm -rf && /Volumes/EFI/Utilities/CreateVault/sign.command && find /Volumes/EFI ! -path "/Volumes/EFI" -name ".*" -o -name "Utilities" | xargs rm -rf && diskutil unmount /dev/disk0s1`
